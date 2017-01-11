@@ -21,7 +21,6 @@ class RevealOnScroll {
         element: currentItem,
         handler: function () {
           $(this.element).addClass("reveal-item--is-visible");
-          console.log(this.element);
         },
         offset: that.offsetPercentage
       })
