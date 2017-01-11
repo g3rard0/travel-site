@@ -46,27 +46,17 @@
 
 	"use strict";
 
-	var _Person = __webpack_require__(1);
+	var _MobileMenu = __webpack_require__(1);
 
-	var _Person2 = _interopRequireDefault(_Person);
+	var _MobileMenu2 = _interopRequireDefault(_MobileMenu);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var $ = __webpack_require__(2);
-	// var Person = require("./modules/Person");
-
-
-	var john = new _Person2.default("John Doe", "blue");
-	john.greet();
-
-	var jane = new _Person2.default("Jane Smith", "green");
-	jane.greet();
-
-	$("h1").hide();
+	var mobileMenu = new _MobileMenu2.default(); // var MobileMenu = require("./modules/MobileMenu");
 
 /***/ },
 /* 1 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
@@ -76,44 +66,42 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+	var _jquery = __webpack_require__(2);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	/*function Person(fullName, color) {
-	  this.fullName = fullName;
-	  this.color = color;
-	  this.greet = function () {
-	    console.log("Hello, my name is " + this.fullName + " and my favorite color is " + this.color + ".");
-	  };
-	}
-	*/
+	var MobileMenu = function () {
+	  function MobileMenu() {
+	    _classCallCheck(this, MobileMenu);
 
-	var Person = function () {
-	  function Person(fullName, color) {
-	    _classCallCheck(this, Person);
-
-	    this.fullName = fullName;
-	    this.color = color;
+	    this.siteHeader = (0, _jquery2.default)(".site-header");
+	    this.menuIcon = (0, _jquery2.default)(".site-header__menu-icon");
+	    this.menuContent = (0, _jquery2.default)(".site-header__menu-content");
+	    this.events();
 	  }
 
-	  _createClass(Person, [{
-	    key: "getFullName",
-	    value: function getFullName() {
-	      return this.fullName;
+	  _createClass(MobileMenu, [{
+	    key: "events",
+	    value: function events() {
+	      this.menuIcon.click(this.toggleTheMenu.bind(this));
 	    }
 	  }, {
-	    key: "greet",
-	    value: function greet() {
-	      console.log("Hello, my name is " + this.fullName + " and my favorite color is " + this.color + ".");
+	    key: "toggleTheMenu",
+	    value: function toggleTheMenu() {
+	      this.menuContent.toggleClass("site-header__menu-content--is-visible");
+	      this.siteHeader.toggleClass("site-header--is-expanded");
+	      this.menuIcon.toggleClass("site-header__menu-icon--close-x");
 	    }
 	  }]);
 
-	  return Person;
+	  return MobileMenu;
 	}();
 
-	// module.exports = Person;
-
-
-	exports.default = Person;
+	exports.default = MobileMenu;
 
 /***/ },
 /* 2 */
