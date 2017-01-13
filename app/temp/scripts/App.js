@@ -11215,7 +11215,7 @@
 	    this.headerLinks = (0, _jquery2.default)(".primary-nav a");
 	    this.createPageSectionWaypoints();
 	    this.addSmoothScrolling();
-	    this.refreshWaypoints();
+	    // this.refreshWaypoints();
 	  }
 
 	  _createClass(StickyHeader, [{
